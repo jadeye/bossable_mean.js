@@ -1,0 +1,19 @@
+<section data-ng-controller="CrudmsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Crudms</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="crudm in crudms" data-ng-href="#!/crudms/{{crudm._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="crudm.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="crudm.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="crudm.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!crudms.$resolved || crudms.length">
+    	No Crudms yet, why don't you <a href="/#!/crudms/create">create one</a>?
+    </div>
+</section>

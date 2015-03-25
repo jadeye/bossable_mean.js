@@ -1,0 +1,42 @@
+<section data-ng-controller="CustomersUpdateController as CustomerUpCtrl">
+
+    <div class="modal-header">
+        <h3 class="modal-title">Update {{customer.firstName}} {{customer.surName}}</h3>
+    </div>
+    <div class="modal-body">
+        <form id="updateCustomerForm">
+            <fieldset>
+                <div class="row">
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-user cust-profile"></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="firstName">First Name</label>
+                            <div class="controls">
+                                <input type="text" ng-model="customer.firstName" id="firstName" name="firstName" class="form-control" placeholder="Name" required>
+                                <span class="error" ng-show="updateCustomerForm.firstName.$error.required">Required!</span><br>
+                            </div>
+                            <label class="control-label" for="surName">Last Name</label>
+                            <div class="controls">
+                                <input type="text" ng-model="customer.surName" id="surName" class="form-control" placeholder="Name" required>
+                            </div>
+                            <label class="control-label" for="email">Email</label>
+                            <div class="controls">
+                                <input type="text" ng-model="customer.email" id="email" class="form-control" placeholder="Name" required>
+                            </div>
+                            <label class="control-label" for="phone">Phone</label>
+                            <div class="controls">
+                                <input type="text" ng-model="customer.phone" id="phone" class="form-control" placeholder="Name" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="CustomerUpCtrl.update(customer, updateCustomerForm.$valid); ok()">Update & Close</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</section>

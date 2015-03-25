@@ -1,0 +1,46 @@
+<section data-ng-controller="CustomersCreateController as CustomerCreateCtrl">
+    <div class="modal-header">
+        <h3 class="modal-title">New Customer</h3>
+    </div>
+    <div class="modal-body">
+        <form name="createCustomerForm" novalidate>
+            <fieldset>
+                <div class="row">
+                    <div class="col-sm-6 text-center">
+                        <i class="glyphicon glyphicon-user cust-profile"></i>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="firstName">First Name</label>
+                            <div class="controls">
+                                <input type="text" ng-model="CustomerCreateCtrl.firstName" id="firstName" name="firstName" class="form-control" placeholder="Name" required>
+                                <br />
+                                <div class="alert alert-danger"
+                                     ng-show="submitted && createCustomerForm.firstName.$error.required && createCustomerForm.firstName.$dirty">
+                                    Please enter your name!
+                                </div>
+                            </div>
+                            <label class="control-label" for="surName">Last Name</label>
+                            <div class="controls">
+                                <input type="text" ng-model="CustomerCreateCtrl.surName" id="surName" name="surName" class="form-control" placeholder="Last Name" required>
+                            </div>
+                            <label class="control-label" for="email">Email</label>
+                            <div class="controls">
+                                <input type="text" ng-model="CustomerCreateCtrl.email" id="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <label class="control-label" for="phone">Phone</label>
+                            <div class="controls">
+                                <input type="text" ng-model="CustomerCreateCtrl.phone" id="phone" name="phone" class="form-control" placeholder="Phone" required>
+                            </div>
+                            {{createCustomerForm.firstName.$errror}}
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="CustomerCreateCtrl.create(); ok()">Save & Close</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</section>
